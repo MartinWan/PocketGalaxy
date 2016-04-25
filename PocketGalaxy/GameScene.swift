@@ -45,7 +45,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        print("contact")
+        /*
+         TODO: implement proper inelastic collisions?
+        let particleA = contact.bodyA.node! as! Particle
+        let particleB = contact.bodyB.node! as! Particle
+
+        let diameterA = sqrt( pow(particleA.size.height, 2) + pow(particleA.size.width , 2) )
+        let diameterB = sqrt( pow(particleB.size.height, 2) + pow(particleB.size.width, 2) )
+        
+        let newdiameter = pow( pow(diameterA, 3) + pow(diameterB, 3), 1/3.0)
+    
+        // conservation of momentum
+        let va_x = ( (particleA.mass * particleA.velocity.dx) + (particleB.mass * particleB.velocity.dx) ) / (particleA.mass + particleB.mass)
+        let va_y = ( (particleA.mass * particleA.velocity.dy) + (particleB.mass * particleB.velocity.dy) ) / (particleA.mass + particleB.mass)
+        particleA.velocity = CGVector(dx: va_x, dy: va_y)
+        
+        // add B's size and mass to A
+        particleA.size.height = newdiameter
+        particleA.size.width = newdiameter
+        particleA.mass += particleB.mass
+        
+        particleB.removeFromParent()
+        */
     }
 
     override func update(currentTime: NSTimeInterval) {

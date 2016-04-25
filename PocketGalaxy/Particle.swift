@@ -8,6 +8,9 @@
 
 import SpriteKit
 
+// an SKSpriteNode with velocity and mass attributes
+// (which allows more precise physics than using SKSpriteNode the physicsBody attribute)
+
 class Particle: SKSpriteNode {
     
     var velocity = CGVector()
@@ -17,8 +20,10 @@ class Particle: SKSpriteNode {
         let texture = SKTexture(imageNamed: "particle")
         let size = CGSize(width: 10, height: 10)
         super.init(texture: texture, color: SKColor.clearColor(), size: size)
-        self.physicsBody = SKPhysicsBody(circleOfRadius: 5)
-        self.physicsBody!.restitution = 0.1
+        
+        physicsBody = SKPhysicsBody(circleOfRadius: 1)
+        physicsBody!.contactTestBitMask = physicsBody!.collisionBitMask
+        physicsBody!.restitution = 0.1
     }
     
     required init?(coder aDecoder: NSCoder) {
