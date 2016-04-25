@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B0AF96B1CB834070042657D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0AF96A1CB834070042657D /* GameScene.swift */; };
+		5B0AF96D1CB834750042657D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF96C1CB834750042657D /* GameScene.sks */; };
+		5B400BE51CC2C0DA00CA81A6 /* Particle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B400BE41CC2C0DA00CA81A6 /* Particle.swift */; };
+		5B8CD2641CB6104600F58DDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8CD2631CB6104600F58DDC /* AppDelegate.swift */; };
+		5B8CD2681CB6104600F58DDC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8CD2671CB6104600F58DDC /* GameViewController.swift */; };
+		5B8CD26B1CB6104600F58DDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8CD2691CB6104600F58DDC /* Main.storyboard */; };
+		5B8CD26D1CB6104600F58DDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B8CD26C1CB6104600F58DDC /* Assets.xcassets */; };
+		5B8CD2701CB6104600F58DDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8CD26E1CB6104600F58DDC /* LaunchScreen.storyboard */; };
+		5B8CD27B1CB6104600F58DDC /* PocketGalaxyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8CD27A1CB6104600F58DDC /* PocketGalaxyTests.swift */; };
+		5B8CD2861CB6104600F58DDC /* PocketGalaxyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8CD2851CB6104600F58DDC /* PocketGalaxyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B8CD2771CB6104600F58DDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B8CD2581CB6104600F58DDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B8CD25F1CB6104600F58DDC;
+			remoteInfo = PocketGalaxy;
+		};
+		5B8CD2821CB6104600F58DDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B8CD2581CB6104600F58DDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B8CD25F1CB6104600F58DDC;
+			remoteInfo = PocketGalaxy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5B0AF96A1CB834070042657D /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		5B0AF96C1CB834750042657D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		5B400BE41CC2C0DA00CA81A6 /* Particle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Particle.swift; sourceTree = "<group>"; };
+		5B8CD2601CB6104600F58DDC /* PocketGalaxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketGalaxy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B8CD2631CB6104600F58DDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B8CD2671CB6104600F58DDC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		5B8CD26A1CB6104600F58DDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B8CD26C1CB6104600F58DDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B8CD26F1CB6104600F58DDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B8CD2711CB6104600F58DDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B8CD2761CB6104600F58DDC /* PocketGalaxyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketGalaxyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B8CD27A1CB6104600F58DDC /* PocketGalaxyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketGalaxyTests.swift; sourceTree = "<group>"; };
+		5B8CD27C1CB6104600F58DDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B8CD2811CB6104600F58DDC /* PocketGalaxyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketGalaxyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B8CD2851CB6104600F58DDC /* PocketGalaxyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketGalaxyUITests.swift; sourceTree = "<group>"; };
+		5B8CD2871CB6104600F58DDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B8CD25D1CB6104600F58DDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B8CD2731CB6104600F58DDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B8CD27E1CB6104600F58DDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B8CD2571CB6104600F58DDC = {
+			isa = PBXGroup;
+			children = (
+				5B8CD2621CB6104600F58DDC /* PocketGalaxy */,
+				5B8CD2791CB6104600F58DDC /* PocketGalaxyTests */,
+				5B8CD2841CB6104600F58DDC /* PocketGalaxyUITests */,
+				5B8CD2611CB6104600F58DDC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B8CD2611CB6104600F58DDC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B8CD2601CB6104600F58DDC /* PocketGalaxy.app */,
+				5B8CD2761CB6104600F58DDC /* PocketGalaxyTests.xctest */,
+				5B8CD2811CB6104600F58DDC /* PocketGalaxyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B8CD2621CB6104600F58DDC /* PocketGalaxy */ = {
+			isa = PBXGroup;
+			children = (
+				5B8CD2631CB6104600F58DDC /* AppDelegate.swift */,
+				5B0AF96A1CB834070042657D /* GameScene.swift */,
+				5B400BE41CC2C0DA00CA81A6 /* Particle.swift */,
+				5B0AF96C1CB834750042657D /* GameScene.sks */,
+				5B8CD2671CB6104600F58DDC /* GameViewController.swift */,
+				5B8CD2691CB6104600F58DDC /* Main.storyboard */,
+				5B8CD26C1CB6104600F58DDC /* Assets.xcassets */,
+				5B8CD26E1CB6104600F58DDC /* LaunchScreen.storyboard */,
+				5B8CD2711CB6104600F58DDC /* Info.plist */,
+			);
+			path = PocketGalaxy;
+			sourceTree = "<group>";
+		};
+		5B8CD2791CB6104600F58DDC /* PocketGalaxyTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B8CD27A1CB6104600F58DDC /* PocketGalaxyTests.swift */,
+				5B8CD27C1CB6104600F58DDC /* Info.plist */,
+			);
+			path = PocketGalaxyTests;
+			sourceTree = "<group>";
+		};
+		5B8CD2841CB6104600F58DDC /* PocketGalaxyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5B8CD2851CB6104600F58DDC /* PocketGalaxyUITests.swift */,
+				5B8CD2871CB6104600F58DDC /* Info.plist */,
+			);
+			path = PocketGalaxyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B8CD25F1CB6104600F58DDC /* PocketGalaxy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B8CD28A1CB6104600F58DDC /* Build configuration list for PBXNativeTarget "PocketGalaxy" */;
+			buildPhases = (
+				5B8CD25C1CB6104600F58DDC /* Sources */,
+				5B8CD25D1CB6104600F58DDC /* Frameworks */,
+				5B8CD25E1CB6104600F58DDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketGalaxy;
+			productName = PocketGalaxy;
+			productReference = 5B8CD2601CB6104600F58DDC /* PocketGalaxy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B8CD2751CB6104600F58DDC /* PocketGalaxyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B8CD28D1CB6104600F58DDC /* Build configuration list for PBXNativeTarget "PocketGalaxyTests" */;
+			buildPhases = (
+				5B8CD2721CB6104600F58DDC /* Sources */,
+				5B8CD2731CB6104600F58DDC /* Frameworks */,
+				5B8CD2741CB6104600F58DDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B8CD2781CB6104600F58DDC /* PBXTargetDependency */,
+			);
+			name = PocketGalaxyTests;
+			productName = PocketGalaxyTests;
+			productReference = 5B8CD2761CB6104600F58DDC /* PocketGalaxyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5B8CD2801CB6104600F58DDC /* PocketGalaxyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B8CD2901CB6104600F58DDC /* Build configuration list for PBXNativeTarget "PocketGalaxyUITests" */;
+			buildPhases = (
+				5B8CD27D1CB6104600F58DDC /* Sources */,
+				5B8CD27E1CB6104600F58DDC /* Frameworks */,
+				5B8CD27F1CB6104600F58DDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B8CD2831CB6104600F58DDC /* PBXTargetDependency */,
+			);
+			name = PocketGalaxyUITests;
+			productName = PocketGalaxyUITests;
+			productReference = 5B8CD2811CB6104600F58DDC /* PocketGalaxyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B8CD2581CB6104600F58DDC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Martin ";
+				TargetAttributes = {
+					5B8CD25F1CB6104600F58DDC = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 2M6L5N45PT;
+					};
+					5B8CD2751CB6104600F58DDC = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 2M6L5N45PT;
+						TestTargetID = 5B8CD25F1CB6104600F58DDC;
+					};
+					5B8CD2801CB6104600F58DDC = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 2M6L5N45PT;
+						TestTargetID = 5B8CD25F1CB6104600F58DDC;
+					};
+				};
+			};
+			buildConfigurationList = 5B8CD25B1CB6104600F58DDC /* Build configuration list for PBXProject "PocketGalaxy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5B8CD2571CB6104600F58DDC;
+			productRefGroup = 5B8CD2611CB6104600F58DDC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B8CD25F1CB6104600F58DDC /* PocketGalaxy */,
+				5B8CD2751CB6104600F58DDC /* PocketGalaxyTests */,
+				5B8CD2801CB6104600F58DDC /* PocketGalaxyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B8CD25E1CB6104600F58DDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0AF96D1CB834750042657D /* GameScene.sks in Resources */,
+				5B8CD2701CB6104600F58DDC /* LaunchScreen.storyboard in Resources */,
+				5B8CD26D1CB6104600F58DDC /* Assets.xcassets in Resources */,
+				5B8CD26B1CB6104600F58DDC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B8CD2741CB6104600F58DDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B8CD27F1CB6104600F58DDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B8CD25C1CB6104600F58DDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B0AF96B1CB834070042657D /* GameScene.swift in Sources */,
+				5B400BE51CC2C0DA00CA81A6 /* Particle.swift in Sources */,
+				5B8CD2681CB6104600F58DDC /* GameViewController.swift in Sources */,
+				5B8CD2641CB6104600F58DDC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B8CD2721CB6104600F58DDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B8CD27B1CB6104600F58DDC /* PocketGalaxyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B8CD27D1CB6104600F58DDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B8CD2861CB6104600F58DDC /* PocketGalaxyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5B8CD2781CB6104600F58DDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B8CD25F1CB6104600F58DDC /* PocketGalaxy */;
+			targetProxy = 5B8CD2771CB6104600F58DDC /* PBXContainerItemProxy */;
+		};
+		5B8CD2831CB6104600F58DDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B8CD25F1CB6104600F58DDC /* PocketGalaxy */;
+			targetProxy = 5B8CD2821CB6104600F58DDC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5B8CD2691CB6104600F58DDC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B8CD26A1CB6104600F58DDC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B8CD26E1CB6104600F58DDC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B8CD26F1CB6104600F58DDC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B8CD2881CB6104600F58DDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B8CD2891CB6104600F58DDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B8CD28B1CB6104600F58DDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PocketGalaxy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Martin.PocketGalaxy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5B8CD28C1CB6104600F58DDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PocketGalaxy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Martin.PocketGalaxy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5B8CD28E1CB6104600F58DDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PocketGalaxyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Martin.PocketGalaxyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketGalaxy.app/PocketGalaxy";
+			};
+			name = Debug;
+		};
+		5B8CD28F1CB6104600F58DDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PocketGalaxyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Martin.PocketGalaxyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketGalaxy.app/PocketGalaxy";
+			};
+			name = Release;
+		};
+		5B8CD2911CB6104600F58DDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PocketGalaxyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Martin.PocketGalaxyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PocketGalaxy;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		5B8CD2921CB6104600F58DDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PocketGalaxyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Martin.PocketGalaxyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PocketGalaxy;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B8CD25B1CB6104600F58DDC /* Build configuration list for PBXProject "PocketGalaxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B8CD2881CB6104600F58DDC /* Debug */,
+				5B8CD2891CB6104600F58DDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B8CD28A1CB6104600F58DDC /* Build configuration list for PBXNativeTarget "PocketGalaxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B8CD28B1CB6104600F58DDC /* Debug */,
+				5B8CD28C1CB6104600F58DDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B8CD28D1CB6104600F58DDC /* Build configuration list for PBXNativeTarget "PocketGalaxyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B8CD28E1CB6104600F58DDC /* Debug */,
+				5B8CD28F1CB6104600F58DDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B8CD2901CB6104600F58DDC /* Build configuration list for PBXNativeTarget "PocketGalaxyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B8CD2911CB6104600F58DDC /* Debug */,
+				5B8CD2921CB6104600F58DDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B8CD2581CB6104600F58DDC /* Project object */;
+}
