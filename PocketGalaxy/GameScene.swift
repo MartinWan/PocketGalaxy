@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.contactDelegate = self
         
-        let N = 400
+        let N = 500
         for _ in 1...N {
             
             let particle = Particle()
@@ -29,10 +29,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // generate random angle
             let angle = 2.0 * Float(M_PI) * Float(arc4random()) / Float(UINT32_MAX)
             
+            // init particle position
             let rx = R * cos(angle) + Float(size.width / 2)
             let ry = R * sin(angle) + Float(size.height / 2)
-            print( rx, ry)
             particle.position = CGPoint(x: Int(rx), y: Int(ry))
+            
+            // init particle velocity
+            let M = particle.mass * CGFloat(N) // total mass
+            let V = sqrt(M / CGFloat(sqrt(R)))
+            let vx = -V * CGFloat(sin(angle))
+            let vy = V * CGFloat(cos(angle))
+            particle.velocity = CGVector(dx: Double(vx), dy: Double(vy))
             
             
             particles.append(particle)
@@ -81,8 +88,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let Ry = otherParticle.position.y - particle.position.y
                 let R = sqrt(Rx * Rx + Ry * Ry)
                 
-                gx += (mass * Rx) / (R * R * R + epsilon)
-                gy += (mass * Ry) / (R * R * R + epsilon)
+                // CHANGED TO 1 / R
+                gx += (mass * Rx) / (R * R + epsilon)
+                gy += (mass * Ry) / (R * R + epsilon)
             }
             // calculate particle's new velocity
             let vx = particle.velocity.dx + h * gx
