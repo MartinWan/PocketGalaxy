@@ -14,14 +14,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         
-        self.physicsWorld.contactDelegate = self
+        physicsWorld.contactDelegate = self
         
-        let N = 300
+        let N = 400
         for _ in 1...N {
             let particle = Particle()
-            let rx = 100 + random() % 1200
-            let ry = 100 + random() % 1800
+            let rx = 200 + random() % 1000
+            let ry = 200 + random() % 1600
             particle.position = CGPoint(x: rx, y: ry)
+            
+            let vx = random() % 10
+            let vy = random() % 10
+            particle.velocity = CGVector(dx: vx, dy: vy)
          
             particles.append(particle)
             self.addChild(particle)
@@ -45,28 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        /*
-         TODO: implement proper inelastic collisions?
-        let particleA = contact.bodyA.node! as! Particle
-        let particleB = contact.bodyB.node! as! Particle
-
-        let diameterA = sqrt( pow(particleA.size.height, 2) + pow(particleA.size.width , 2) )
-        let diameterB = sqrt( pow(particleB.size.height, 2) + pow(particleB.size.width, 2) )
-        
-        let newdiameter = pow( pow(diameterA, 3) + pow(diameterB, 3), 1/3.0)
-    
-        // conservation of momentum
-        let va_x = ( (particleA.mass * particleA.velocity.dx) + (particleB.mass * particleB.velocity.dx) ) / (particleA.mass + particleB.mass)
-        let va_y = ( (particleA.mass * particleA.velocity.dy) + (particleB.mass * particleB.velocity.dy) ) / (particleA.mass + particleB.mass)
-        particleA.velocity = CGVector(dx: va_x, dy: va_y)
-        
-        // add B's size and mass to A
-        particleA.size.height = newdiameter
-        particleA.size.width = newdiameter
-        particleA.mass += particleB.mass
-        
-        particleB.removeFromParent()
-        */
+        // TODO: implement proper inelastic collisions?
     }
 
     override func update(currentTime: NSTimeInterval) {

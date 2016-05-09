@@ -24,6 +24,7 @@ class Particle: SKSpriteNode {
         physicsBody = SKPhysicsBody(circleOfRadius: 1)
         physicsBody!.contactTestBitMask = physicsBody!.collisionBitMask
         physicsBody!.restitution = 0.1
+        physicsBody!.dynamic = false 
     }
     
     required init?(coder aDecoder: NSCoder) {
