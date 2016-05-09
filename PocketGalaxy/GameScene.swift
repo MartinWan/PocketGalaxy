@@ -18,20 +18,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let N = 400
         for _ in 1...N {
-            let particle = Particle()
-            let rx = 200 + random() % 1000
-            let ry = 200 + random() % 1600
-            particle.position = CGPoint(x: rx, y: ry)
             
-            let vx = random() % 10
-            let vy = random() % 10
-            particle.velocity = CGVector(dx: vx, dy: vy)
-         
+            let particle = Particle()
+            
+            // generate R from exponential distribution, Vancouleur's law
+            let u = Float(arc4random()) / Float(UINT32_MAX)
+            let lambda = Float(0.001)
+            let R = -log(1.0 - u) / lambda
+            
+            // generate random angle
+            let angle = 2.0 * Float(M_PI) * Float(arc4random()) / Float(UINT32_MAX)
+            
+            let rx = R * cos(angle) + Float(size.width / 2)
+            let ry = R * sin(angle) + Float(size.height / 2)
+            print( rx, ry)
+            particle.position = CGPoint(x: Int(rx), y: Int(ry))
+            
+            
             particles.append(particle)
             self.addChild(particle)
         }
  
-        
         /* Two body orbit test
         let p1 = Particle()
         let p2 = Particle()
@@ -53,6 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     override func update(currentTime: NSTimeInterval) {
+        
         
         let epsilon = CGFloat(0.01) // for singularity softening
         let h = CGFloat(0.01) // size of runge kutta h-step, error is O(h^4)
