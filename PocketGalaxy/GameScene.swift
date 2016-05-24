@@ -30,6 +30,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         particle.position = CGPoint(x: 1, y: 1) // SW
         root.insert(particle1)
         
+        
+        print ("test")
+        
         /*
         let N = 10
         let M = CGFloat(N) * Particle().mass

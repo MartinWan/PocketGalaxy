@@ -45,6 +45,7 @@ class QuadrantNode {
             
             subquadrants[quadrant] = QuadrantNode(topRight: subQuadrantTopRight, bottomLeft: subQudrantBottomLeft)
             subquadrants[quadrant]!.particle = particle
+            subquadrants[quadrant]!.mass = particle.mass
             subquadrants[quadrant]!.isLeaf = true
             isLeaf = false
 
@@ -63,10 +64,10 @@ class QuadrantNode {
         } else { // more than 1 subquadrants already
             subquadrants[quadrant]!.insert(particle)
         }
-        
     }
     
     func getQuadrant(particle: Particle) -> Quadrant {
+        
         let width = quadTopRight.x - quadBottomLeft.x
         let height = quadTopRight.y - quadBottomLeft.y
         
@@ -121,10 +122,68 @@ class QuadrantNode {
     }
     
     func computeMassDistribution() {
-        
+    
+        if isLeaf {
+            centerOfMass = particle!.position
+            mass = particle!.mass
+        } else {
+            
+            var cm_x = CGFloat(0.0)
+            var cm_y = CGFloat(0.0)
+            
+            for ( _ , quadNode ) in subquadrants {
+                quadNode.computeMassDistribution()
+                mass += quadNode.mass
+                cm_x += quadNode.centerOfMass!.x
+                cm_y += quadNode.centerOfMass!.y
+            }
+            centerOfMass = CGPoint(x: cm_x / mass, y: cm_y / mass)
+        }
     }
     
-    func getForceOnParticle(targetParticle:Particle) {
+    func getForceOnParticle(targetParticle:Particle) -> CGVector {
+        
+        var force = CGVector(dx: 0, dy: 0)
+        
+        if isLeaf && particle != nil { // TODO: shouldn't isLeaf always mean particle isn't nil?
+            
+            let Rx = particle!.position.x - targetParticle.position.x
+            let Ry = particle!.position.y - targetParticle.position.y
+            let R = sqrt( Rx * Rx + Ry * Ry )
+            
+            force.dx = (particle!.mass * targetParticle.mass) * Rx / (R * R * R)
+            force.dy = (particle!.mass * targetParticle.mass) * Ry / (R * R * R)
+            
+            return force
+            
+        } else {
+            
+            let Rx = centerOfMass!.x - targetParticle.position.x
+            let Ry = centerOfMass!.y - targetParticle.position.y
+            let R = sqrt(Rx * Rx + Ry * Ry)
+            let d = quadTopRight.y - quadBottomLeft.y
+            
+            let theta = CGFloat(1.0)
+            
+            if (d / R < theta) {
+                
+                force.dx = (targetParticle.mass * self.mass) * Rx / (R * R * R)
+                force.dy = (targetParticle.mass * self.mass) * Ry / (R * R * R)
+
+                return force
+            } else {
+                
+                for ( _ , quadNode ) in subquadrants {
+                    
+                    let subquadrantForce = quadNode.getForceOnParticle(targetParticle)
+                    force.dx += subquadrantForce.dx
+                    force.dy += subquadrantForce.dy
+                }
+                
+                return force
+                
+            }
+        }
         
     }
     
