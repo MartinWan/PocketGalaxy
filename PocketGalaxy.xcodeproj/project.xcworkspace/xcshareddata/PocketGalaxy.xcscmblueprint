@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "073D855A87093853F1026F7BF5D5723CA2B20676",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "073D855A87093853F1026F7BF5D5723CA2B20676" : 0,
+    "9F5D61AF59E7E3BC78F855B8C0373F6FE7B08832" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "AB47A583-ED6F-4B49-B23E-2F1A2067954B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "073D855A87093853F1026F7BF5D5723CA2B20676" : "PocketGalaxy\/",
+    "9F5D61AF59E7E3BC78F855B8C0373F6FE7B08832" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PocketGalaxy",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PocketGalaxy.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MartinWan\/PocketGalaxy",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "073D855A87093853F1026F7BF5D5723CA2B20676"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MartinWan\/Planar-Orbits.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F5D61AF59E7E3BC78F855B8C0373F6FE7B08832"
+    }
+  ]
+}

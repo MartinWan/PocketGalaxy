@@ -17,6 +17,7 @@
 		5B8CD2701CB6104600F58DDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8CD26E1CB6104600F58DDC /* LaunchScreen.storyboard */; };
 		5B8CD27B1CB6104600F58DDC /* PocketGalaxyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8CD27A1CB6104600F58DDC /* PocketGalaxyTests.swift */; };
 		5B8CD2861CB6104600F58DDC /* PocketGalaxyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8CD2851CB6104600F58DDC /* PocketGalaxyUITests.swift */; };
+		5BE689A11CF3B2A200D0238F /* QuadrantNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE689A01CF3B2A200D0238F /* QuadrantNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5B8CD2811CB6104600F58DDC /* PocketGalaxyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketGalaxyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B8CD2851CB6104600F58DDC /* PocketGalaxyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketGalaxyUITests.swift; sourceTree = "<group>"; };
 		5B8CD2871CB6104600F58DDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BE689A01CF3B2A200D0238F /* QuadrantNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadrantNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				5B8CD2631CB6104600F58DDC /* AppDelegate.swift */,
 				5B0AF96A1CB834070042657D /* GameScene.swift */,
+				5BE689A01CF3B2A200D0238F /* QuadrantNode.swift */,
 				5B400BE41CC2C0DA00CA81A6 /* Particle.swift */,
 				5B0AF96C1CB834750042657D /* GameScene.sks */,
 				5B8CD2671CB6104600F58DDC /* GameViewController.swift */,
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B0AF96B1CB834070042657D /* GameScene.swift in Sources */,
+				5BE689A11CF3B2A200D0238F /* QuadrantNode.swift in Sources */,
 				5B400BE51CC2C0DA00CA81A6 /* Particle.swift in Sources */,
 				5B8CD2681CB6104600F58DDC /* GameViewController.swift in Sources */,
 				5B8CD2641CB6104600F58DDC /* AppDelegate.swift in Sources */,
