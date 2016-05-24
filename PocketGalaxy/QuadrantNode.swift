@@ -22,32 +22,33 @@ class QuadrantNode {
     
     var quadTopRight:CGPoint
     var quadBottomLeft:CGPoint
+    var isLeaf:Bool
     
     var mass:CGFloat
     var centerOfMass:CGPoint?
-    var isLeaf = false
-    
+
     init(topRight: CGPoint, bottomLeft: CGPoint) {
         quadTopRight = topRight
         quadBottomLeft = bottomLeft
         mass = 0
-        particleCount = 0
+        isLeaf = false
     }
     
     func insert(particle: Particle) {
         
         let quadrant = getQuadrant(particle)
-        let subQuadrantTopRight = getSubQuadrantTopRight(particle)
-        let subQudrantBottomLeft = getSubQuadrantBottomLeft(particle)
         
         if subquadrants[quadrant] == nil {
+            
+            let subQuadrantTopRight = getSubQuadrantTopRight(particle)
+            let subQudrantBottomLeft = getSubQuadrantBottomLeft(particle)
             
             subquadrants[quadrant] = QuadrantNode(topRight: subQuadrantTopRight, bottomLeft: subQudrantBottomLeft)
             subquadrants[quadrant]!.particle = particle
             subquadrants[quadrant]!.isLeaf = true
             isLeaf = false
 
-        } else if subquadrants[quadrant] != nil && subquadrants[quadrant]!.isLeaf { // quadrant has exactly 1 child
+        } else if subquadrants[quadrant] != nil && subquadrants[quadrant]!.isLeaf {
             
             let existingParticle = subquadrants[quadrant]!.particle! // must have particle since is leaf node
             
@@ -60,7 +61,6 @@ class QuadrantNode {
             subquadrants[quadrant]!.insert(particle)
             
         } else { // more than 1 subquadrants already
-            
             subquadrants[quadrant]!.insert(particle)
         }
         
@@ -119,45 +119,6 @@ class QuadrantNode {
             return CGPoint(x: quadMidX, y: quadMidY)
         }
     }
-    
-    func getSubSubQuadrantTopRight(particle: Particle) -> CGPoint {
-        let width = quadTopRight.x - quadBottomLeft.x
-        let height = quadTopRight.y - quadBottomLeft.y
-        
-        let quadMidX = quadBottomLeft.x + width / 2
-        let quadMidY = quadBottomLeft.y + height / 2
-        
-        if (particle.position.x < quadMidX && particle.position.y < quadMidY) {
-            return CGPoint(x: quadMidX, y: quadMidY)
-        } else if (particle.position.x < quadMidX && particle.position.y > quadMidY) {
-            return CGPoint(x: quadMidX, y: quadTopRight.y)
-        } else if (particle.position.x > quadMidX && particle.position.y < quadMidY) {
-            return CGPoint(x: quadTopRight.x, y: quadMidY)
-        } else {
-            return quadTopRight
-        }
-    }
-    
-    func getSubSubQuadrantBottomLeft(particle: Particle) -> CGPoint {
-        let width = quadTopRight.x - quadBottomLeft.x
-        let height = quadTopRight.y - quadBottomLeft.y
-        
-        let quadMidX = quadBottomLeft.x + width / 2
-        let quadMidY = quadBottomLeft.y + height / 2
-        
-        if (particle.position.x < quadMidX && particle.position.y < quadMidY) {
-            return quadBottomLeft
-        } else if (particle.position.x < quadMidX && particle.position.y > quadMidY) {
-            return CGPoint(x: quadBottomLeft.x, y: quadMidY)
-        } else if (particle.position.x > quadMidX && particle.position.y < quadMidY) {
-            return CGPoint(x: quadMidX, y: quadBottomLeft.y)
-        } else {
-            return CGPoint(x: quadMidX, y: quadMidY)
-            
-        }
-    }
-    
-    
     
     func computeMassDistribution() {
         
