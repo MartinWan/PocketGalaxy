@@ -27,6 +27,20 @@ class Particle: SKSpriteNode {
         physicsBody!.dynamic = false 
     }
     
+    init(posX: CGFloat, posY: CGFloat) {
+        let texture = SKTexture(imageNamed: "particle")
+        let size = CGSize(width: 10, height: 10)
+        super.init(texture: texture, color: SKColor.clearColor(), size: size)
+        
+        physicsBody = SKPhysicsBody(circleOfRadius: 1)
+        physicsBody!.contactTestBitMask = physicsBody!.collisionBitMask
+        physicsBody!.restitution = 0.1
+        physicsBody!.dynamic = false
+        
+        position.x = posX
+        position.y = posY
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

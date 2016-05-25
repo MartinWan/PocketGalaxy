@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
             let skView = self.view as! SKView!
             scene.scaleMode = .AspectFit
             skView.presentScene(scene)
-        } 
+        }
     }
     
 }

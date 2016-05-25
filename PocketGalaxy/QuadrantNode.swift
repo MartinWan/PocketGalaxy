@@ -17,8 +17,8 @@ enum Quadrant:Int {
 
 class QuadrantNode {
 
-    var subquadrants = Dictionary<Quadrant, QuadrantNode>()
-    var particle:Particle?
+    var children = Dictionary<Quadrant, QuadrantNode>()
+    var particles = Array<Particle>()
     
     var quadTopRight:CGPoint
     var quadBottomLeft:CGPoint
@@ -37,32 +37,42 @@ class QuadrantNode {
     func insert(particle: Particle) {
         
         let quadrant = getQuadrant(particle)
+        let treeDepth = quadTopRight.y - quadBottomLeft.y
         
-        if subquadrants[quadrant] == nil {
+        if treeDepth <= MIN_QUADRANT_HEIGHT { // reached max tree depth
+            
+            particles.append(particle)
+            mass += particle.mass
+            
+        } else if children[quadrant] == nil {
             
             let subQuadrantTopRight = getSubQuadrantTopRight(particle)
             let subQudrantBottomLeft = getSubQuadrantBottomLeft(particle)
             
-            subquadrants[quadrant] = QuadrantNode(topRight: subQuadrantTopRight, bottomLeft: subQudrantBottomLeft)
-            subquadrants[quadrant]!.particle = particle
-            subquadrants[quadrant]!.mass = particle.mass
-            subquadrants[quadrant]!.isLeaf = true
+            children[quadrant] = QuadrantNode(topRight: subQuadrantTopRight, bottomLeft: subQudrantBottomLeft)
+            children[quadrant]!.particles.append(particle)
+            children[quadrant]!.mass = particle.mass
+            children[quadrant]!.isLeaf = true
             isLeaf = false
 
-        } else if subquadrants[quadrant] != nil && subquadrants[quadrant]!.isLeaf {
+        } else if children[quadrant] != nil && children[quadrant]!.isLeaf {
             
-            let existingParticle = subquadrants[quadrant]!.particle! // must have particle since is leaf node
+            for existingParticle in children[quadrant]!.particles {  // recursively insert existing particles in leaf into the sub quadrant
+                 children[quadrant]!.insert(existingParticle)
+            }
+            children[quadrant]!.insert(particle)
             
-            // remove particle from the leaf node
-            subquadrants[quadrant]!.particle = nil
-            subquadrants[quadrant]!.isLeaf = false
+            // remove particle if is no longer a leaf node
+            if (children[quadrant]!.isLeaf == false) {
+                children[quadrant]!.particles.removeAll()
+            }
             
-            // recursively insert existing particle and new particle
-            subquadrants[quadrant]!.insert(existingParticle)
-            subquadrants[quadrant]!.insert(particle)
+            children[quadrant]!.isLeaf = false
+            children[quadrant]!.mass += particle.mass
             
-        } else { // more than 1 subquadrants already
-            subquadrants[quadrant]!.insert(particle)
+        } else { // more than 1 children already
+            
+            children[quadrant]!.insert(particle)
         }
     }
     
@@ -123,15 +133,26 @@ class QuadrantNode {
     
     func computeMassDistribution() {
     
+        mass = 0 // TODO: necessary to reset mass?
+        centerOfMass = CGPoint(x: 0, y: 0)
+        
         if isLeaf {
-            centerOfMass = particle!.position
-            mass = particle!.mass
+            
+            for particle in particles {
+                mass += particle.mass
+                centerOfMass!.x += particle.position.x * particle.mass
+                centerOfMass!.y += particle.position.y * particle.mass
+            }
+            
+            centerOfMass!.x /= mass
+            centerOfMass!.y /= mass
+            
         } else {
             
             var cm_x = CGFloat(0.0)
             var cm_y = CGFloat(0.0)
             
-            for ( _ , quadNode ) in subquadrants {
+            for ( _ , quadNode ) in children {
                 quadNode.computeMassDistribution()
                 mass += quadNode.mass
                 cm_x += quadNode.centerOfMass!.x
@@ -141,20 +162,23 @@ class QuadrantNode {
         }
     }
     
-    func getForceOnParticle(targetParticle:Particle) -> CGVector {
+    func getFieldOnParticle(targetParticle: Particle) -> CGVector {
         
-        var force = CGVector(dx: 0, dy: 0)
+        var field = CGVector(dx: 0, dy: 0)
         
-        if isLeaf && particle != nil { // TODO: shouldn't isLeaf always mean particle isn't nil?
+        if isLeaf {
             
-            let Rx = particle!.position.x - targetParticle.position.x
-            let Ry = particle!.position.y - targetParticle.position.y
-            let R = sqrt( Rx * Rx + Ry * Ry )
-            
-            force.dx = (particle!.mass * targetParticle.mass) * Rx / (R * R * R)
-            force.dy = (particle!.mass * targetParticle.mass) * Ry / (R * R * R)
-            
-            return force
+            for particle in particles {
+                
+                let Rx = particle.position.x - targetParticle.position.x
+                let Ry = particle.position.y - targetParticle.position.y
+                let R = sqrt( Rx * Rx + Ry * Ry )
+                
+                field.dx += (particle.mass * Rx) / (R * R * R)
+                field.dy += (particle.mass * Ry) / (R * R * R)
+            }
+        
+            return field
             
         } else {
             
@@ -167,24 +191,24 @@ class QuadrantNode {
             
             if (d / R < theta) {
                 
-                force.dx = (targetParticle.mass * self.mass) * Rx / (R * R * R)
-                force.dy = (targetParticle.mass * self.mass) * Ry / (R * R * R)
+                field.dx = (targetParticle.mass * Rx) / (R * R * R)
+                field.dy = (targetParticle.mass * Ry) / (R * R * R)
 
-                return force
+                return field
+                
             } else {
                 
-                for ( _ , quadNode ) in subquadrants {
+                for ( _ , quadNode ) in children {
                     
-                    let subquadrantForce = quadNode.getForceOnParticle(targetParticle)
-                    force.dx += subquadrantForce.dx
-                    force.dy += subquadrantForce.dy
+                    let subquadrantfield = quadNode.getFieldOnParticle(targetParticle)
+                    field.dx += subquadrantfield.dx
+                    field.dy += subquadrantfield.dy
                 }
                 
-                return force
-                
+                return field
             }
         }
-        
+ 
     }
     
 }
