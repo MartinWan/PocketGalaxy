@@ -27,7 +27,7 @@ class Particle: SKSpriteNode {
         physicsBody!.dynamic = false 
     }
     
-    init(posX: CGFloat, posY: CGFloat) {
+    init(posX: Float, posY: Float) {
         let texture = SKTexture(imageNamed: "particle")
         let size = CGSize(width: 10, height: 10)
         super.init(texture: texture, color: SKColor.clearColor(), size: size)
@@ -37,8 +37,8 @@ class Particle: SKSpriteNode {
         physicsBody!.restitution = 0.1
         physicsBody!.dynamic = false
         
-        position.x = posX
-        position.y = posY
+        position.x = CGFloat(posX)
+        position.y = CGFloat(posY)
     }
     
     required init?(coder aDecoder: NSCoder) {
