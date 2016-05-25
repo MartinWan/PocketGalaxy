@@ -155,14 +155,16 @@ class QuadrantNode {
             for ( _ , quadNode ) in children {
                 quadNode.computeMassDistribution()
                 mass += quadNode.mass
-                cm_x += quadNode.centerOfMass!.x
-                cm_y += quadNode.centerOfMass!.y
+                cm_x += quadNode.centerOfMass!.x * quadNode.mass
+                cm_y += quadNode.centerOfMass!.y * quadNode.mass
             }
             centerOfMass = CGPoint(x: cm_x / mass, y: cm_y / mass)
         }
     }
     
     func getFieldOnParticle(targetParticle: Particle) -> CGVector {
+        
+        computeMassDistribution()
         
         var field = CGVector(dx: 0, dy: 0)
         
@@ -201,6 +203,11 @@ class QuadrantNode {
                 for ( _ , quadNode ) in children {
                     
                     let subquadrantfield = quadNode.getFieldOnParticle(targetParticle)
+                    
+                    if (quadNode.centerOfMass == targetParticle.position) {
+                        continue 
+                    }
+                    
                     field.dx += subquadrantfield.dx
                     field.dy += subquadrantfield.dy
                 }

@@ -27,12 +27,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let sceneBottomleft = CGPoint(x: 0, y: 0)
         root = QuadrantNode(topRight: sceneTopRight, bottomLeft: sceneBottomleft)
         
-        let particle = Particle(posX: 0, posY: 0) // SW
+        let particle = Particle(posX: 500, posY: 500)
         root.insert(particle)
+        particles.append(particle)
         
-        let particle1 = Particle(posX: 0, posY: size.height) // SE
+        let particle1 = Particle(posX: 500, posY: 1000)
         root.insert(particle1)
+        particles.append(particle1)
         
+        self.addChild(particle1)
+        self.addChild(particle)
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -44,13 +48,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let h = CGFloat(0.01) // size of h-step in numerical integration (euler's method for now)
         var newParticleVelocities = Dictionary<Particle, CGVector>()
         
-        
         // calculate new particle velocities
         for particle in particles {
 
             let g = root.getFieldOnParticle(particle)
             let vx = particle.velocity.dx + h * g.dx
             let vy = particle.velocity.dy + h * g.dy
+            
+            print (g)
             
             newParticleVelocities[particle] = CGVector(dx: vx, dy: vy)
         }
